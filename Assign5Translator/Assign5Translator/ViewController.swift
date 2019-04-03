@@ -45,7 +45,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func translate(_ sender: UIButton) {
        
         outputLabel.text = runTranslation()
-
+        outputLabel.setNeedsDisplay()
 
     }
     
@@ -76,15 +76,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         getTranslation(tLangID ?? 2)
-        
-        print(translated)
-        DispatchQueue.main.async {
-            self.outputLabel.text = self.translated
-            self.outputLabel.text = self.translated
-            self.outputLabel.setNeedsDisplay()
-        }
-        outputLabel.text = translated
-        outputLabel.setNeedsDisplay()
+        getTranslation(tLangID ?? 2)
+
         return translated
     }
     
@@ -108,7 +101,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             // success :)
 //            print(translate.baseWord)
 //            print(translate.foreignWord)
-            
             self.translated = translate.foreignWord
             
             

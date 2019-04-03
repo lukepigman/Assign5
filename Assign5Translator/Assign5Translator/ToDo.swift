@@ -22,7 +22,7 @@ struct Translation: Codable{
     static func endpointForTranslations () -> String {
         return "http://gfish.ad.ilstu.edu:8080/ForeignWordsRESTApp/webresources/entities.foreignwords/"
     }
-
+    
     enum BackendError : Error {
         case urlError(reason: String)
         case objectSerialization(reason: String)
@@ -65,6 +65,7 @@ struct Translation: Codable{
                 print(error)
                 completionHandler(nil, error)
             }
+           
         })
 
         task.resume()
